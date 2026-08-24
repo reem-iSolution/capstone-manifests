@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: capstone-app
+  namespace: reem-capstone
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: capstone-app
+
+  template:
+    metadata:
+      labels:
+        app: capstone-app
+
+    spec:
+      containers:
+        - name: capstone-app
+          image: us-central1-docker.pkg.dev/internship-lab-505207/capstone-repo/capstone-app:v1
+
+          ports:
+            - containerPort: 8080
+
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 5
+
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 10
