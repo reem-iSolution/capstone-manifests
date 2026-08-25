@@ -42,6 +42,13 @@ spec:
           ports:
             - containerPort: 8080
 
+          env:
+            - name: APP_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: capstone-app-secret
+                  key: APP_SECRET
+
           resources:
             requests:
               cpu: "100m"
