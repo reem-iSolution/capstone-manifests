@@ -35,7 +35,7 @@ spec:
     spec:
       containers:
         - name: capstone-app
-          image: us-central1-docker.pkg.dev/internship-lab-505207/capstone-repo/capstone-app:17d637c6861772fb125b746df0f24137569199cd
+          image: us-central1-docker.pkg.dev/internship-lab-505207/capstone-repo/capstone-app:15d72274cd4b5d7a80755a14b38b7df7b9a4e416
 
           ports:
             - containerPort: 8080
