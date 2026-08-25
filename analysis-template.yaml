@@ -9,7 +9,7 @@ spec:
     - name: error-rate
       interval: 30s
       count: 3
-      successCondition: len(result) > 0 && result[0] < 0
+      successCondition: len(result) > 0 && result[0] < 0.05
       failureLimit: 1
 
       provider:
